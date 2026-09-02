@@ -1,0 +1,588 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #05070a;
+    color: #e9ffff;
+    font-family: "Rajdhani", sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* BACKGROUND */
+
+.grid {
+    position: fixed;
+    inset: 0;
+    z-index: -3;
+
+    background-image:
+        linear-gradient(rgba(0, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 255, 0.035) 1px, transparent 1px);
+
+    background-size: 50px 50px;
+
+    transform: perspective(600px) rotateX(55deg) scale(1.8);
+    transform-origin: center bottom;
+}
+
+.scanlines {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 100;
+
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 3px,
+        rgba(255,255,255,0.015) 4px
+    );
+}
+
+
+/* NAVBAR */
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 50;
+
+    background: rgba(5, 7, 10, 0.82);
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid rgba(0, 255, 255, 0.15);
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: auto;
+
+    padding: 22px 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-family: "Orbitron", sans-serif;
+    font-size: 21px;
+    font-weight: 900;
+    letter-spacing: 3px;
+}
+
+.logo span {
+    color: #00ffff;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: #8ca9ad;
+    text-decoration: none;
+
+    font-family: "Orbitron", sans-serif;
+    font-size: 11px;
+    letter-spacing: 1px;
+
+    transition: 0.2s;
+}
+
+.nav-links a:hover {
+    color: #00ffff;
+    text-shadow: 0 0 12px #00ffff;
+}
+
+
+/* HERO */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+
+    max-width: 1200px;
+    margin: auto;
+
+    padding: 150px 30px 100px;
+}
+
+.hero-content {
+    max-width: 750px;
+}
+
+.status {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    font-family: "Orbitron", sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+
+    color: #00ffff;
+
+    margin-bottom: 25px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+
+    background: #00ffff;
+    border-radius: 50%;
+
+    box-shadow: 0 0 15px #00ffff;
+
+    animation: pulse 1.4s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.35;
+    }
+}
+
+h1 {
+    font-family: "Orbitron", sans-serif;
+
+    font-size: clamp(65px, 12vw, 150px);
+    line-height: 0.82;
+
+    font-weight: 900;
+    letter-spacing: -5px;
+
+    text-shadow:
+        0 0 20px rgba(0,255,255,0.25),
+        0 0 60px rgba(0,255,255,0.08);
+}
+
+h1 span {
+    color: #00ffff;
+}
+
+.tagline {
+    margin-top: 35px;
+
+    color: #8ca9ad;
+
+    font-family: "Orbitron", sans-serif;
+    font-size: 14px;
+
+    line-height: 1.8;
+    letter-spacing: 2px;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+
+    margin-top: 40px;
+}
+
+.download-button,
+.secondary-button {
+    display: inline-block;
+
+    padding: 17px 28px;
+
+    font-family: "Orbitron", sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    text-decoration: none;
+
+    transition: 0.2s;
+}
+
+.download-button {
+    background: #00ffff;
+    color: #020607;
+
+    box-shadow:
+        0 0 20px rgba(0,255,255,0.25);
+}
+
+.download-button:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 0 30px rgba(0,255,255,0.6);
+}
+
+.secondary-button {
+    border: 1px solid #1d6266;
+    color: #b9dfe1;
+}
+
+.secondary-button:hover {
+    border-color: #00ffff;
+    color: #00ffff;
+}
+
+.version {
+    margin-top: 18px;
+
+    font-size: 11px;
+    letter-spacing: 2px;
+
+    color: #536d70;
+}
+
+
+/* SECTIONS */
+
+.section {
+    max-width: 1200px;
+    margin: auto;
+
+    padding: 120px 30px;
+}
+
+.section-title {
+    margin-bottom: 50px;
+}
+
+.section-title p {
+    color: #00ffff;
+
+    font-family: "Orbitron", sans-serif;
+    font-size: 11px;
+
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.section-title h2 {
+    font-family: "Orbitron", sans-serif;
+
+    font-size: clamp(30px, 5vw, 55px);
+
+    letter-spacing: -2px;
+}
+
+
+/* FEATURES */
+
+.features {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+}
+
+.feature-card {
+    min-height: 230px;
+
+    padding: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(0,255,255,0.07),
+            rgba(0,0,0,0.2)
+        );
+
+    border: 1px solid rgba(0,255,255,0.13);
+
+    transition: 0.25s;
+}
+
+.feature-card:hover {
+    transform: translateY(-6px);
+
+    border-color: rgba(0,255,255,0.6);
+
+    box-shadow:
+        0 15px 40px rgba(0,255,255,0.08);
+}
+
+.icon {
+    font-family: "Orbitron", sans-serif;
+
+    color: #00ffff;
+
+    font-size: 32px;
+
+    margin-bottom: 25px;
+}
+
+.feature-card h3 {
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 15px;
+    letter-spacing: 1px;
+
+    margin-bottom: 12px;
+}
+
+.feature-card p {
+    color: #789397;
+
+    line-height: 1.7;
+    font-size: 16px;
+}
+
+
+/* CONTROLS */
+
+.controls-section {
+    border-top: 1px solid rgba(0,255,255,0.08);
+}
+
+.controls {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 15px;
+}
+
+.control {
+    padding: 20px;
+
+    border: 1px solid rgba(0,255,255,0.12);
+
+    background: rgba(0,255,255,0.025);
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.key {
+    min-width: 52px;
+
+    padding: 10px 8px;
+
+    text-align: center;
+
+    border: 1px solid #23595d;
+
+    color: #00ffff;
+
+    font-family: "Orbitron", sans-serif;
+    font-size: 10px;
+
+    background: #080d10;
+}
+
+.control span {
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 10px;
+    letter-spacing: 1px;
+
+    color: #8ca9ad;
+}
+
+
+/* DOWNLOAD */
+
+.download-section {
+    padding: 100px 30px 140px;
+
+    max-width: 1200px;
+    margin: auto;
+}
+
+.download-box {
+    text-align: center;
+
+    padding: 80px 30px;
+
+    border: 1px solid rgba(0,255,255,0.25);
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(0,255,255,0.08),
+            transparent 65%
+        );
+}
+
+.download-box .status {
+    margin-bottom: 20px;
+}
+
+.download-box h2 {
+    font-family: "Orbitron", sans-serif;
+
+    font-size: clamp(35px, 6vw, 65px);
+
+    margin-bottom: 15px;
+}
+
+.download-box > p:not(.status):not(.small) {
+    color: #789397;
+
+    font-size: 18px;
+
+    margin-bottom: 35px;
+}
+
+.download-button.big {
+    font-size: 14px;
+
+    padding: 20px 35px;
+}
+
+.small {
+    color: #526d70;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    margin-top: 20px;
+}
+
+
+/* CHANGELOG */
+
+.changelog {
+    border-left: 1px solid rgba(0,255,255,0.3);
+}
+
+.change {
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    padding: 18px 25px;
+
+    border-bottom: 1px solid rgba(0,255,255,0.08);
+}
+
+.change span {
+    color: #00ffff;
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 11px;
+}
+
+.change p {
+    color: #9bb2b5;
+
+    font-size: 16px;
+}
+
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+
+    padding: 70px 30px;
+
+    border-top: 1px solid rgba(0,255,255,0.1);
+
+    background: #030506;
+}
+
+.footer-logo {
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 20px;
+    font-weight: 900;
+
+    letter-spacing: 4px;
+
+    color: #00ffff;
+}
+
+footer p {
+    color: #61787b;
+
+    margin-top: 12px;
+
+    letter-spacing: 2px;
+}
+
+footer .copyright {
+    margin-top: 30px;
+
+    color: #34474a;
+
+    font-size: 10px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero {
+        padding-top: 130px;
+    }
+
+    h1 {
+        letter-spacing: -3px;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    .controls {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .buttons {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .download-button,
+    .secondary-button {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .controls {
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        padding: 80px 20px;
+    }
+
+    .download-section {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .download-box {
+        padding: 60px 20px;
+    }
+}
