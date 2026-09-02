@@ -1,33 +1,31 @@
 name: Build VOID RUNNER for macOS
 
 on:
+  workflow_dispatch:
   push:
     paths:
-      - "void_runner.py"
-      - ".github/workflows/macos.yml"
-  workflow_dispatch:
+      - void_runner.py
+      - .github/workflows/macos.yml
 
 jobs:
-  build-macos:
-    name: Build macOS App
+  build:
     runs-on: macos-latest
 
     steps:
-      - name: Checkout source code
-        uses: actions/checkout@v6
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-          cache: "pip"
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           python -m pip install pygame-ce Nuitka
 
-      - name: Build VOID RUNNER.app
+      - name: Build VOID RUNNER
         run: |
           python -m nuitka \
             --mode=app \
